@@ -7,6 +7,9 @@
 
 <?php
 
+// Note: use interface when you need to impose method names or when you want
+// to get access to all the classes that implement it (see line 49 below)
+
     interface PaymentOption{
         public function pay();
     }
