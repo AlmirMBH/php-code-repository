@@ -2,7 +2,7 @@
 <html lang="en">
 <head><title>Constructor and destructor</title></head>
 <body>
-    
+    <h1>Constructor and destructor</h1>
 <?php
     class Person{
 
