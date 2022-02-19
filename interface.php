@@ -62,6 +62,40 @@
     $purchase->executePurchase($cash);
 
 
+    // INTERFACE + INHERITANCE
+
+    interface Animal {
+        public function makeSound();
+      }
+      interface Movement{
+          public function move();
+      }
+      abstract class Mamal{
+          abstract function eat($food);
+          public function legs($legs){ return $legs; }
+      }
+      class Domestic{    
+          public function live($home){ return $home; }
+      }
+      
+      
+
+      class Cat extends Mamal implements Animal, Movement {
+          public function makeSound() { return "meow"; }
+          public function move() { return "Walk"; }
+          public function eat($food = "milk") { return $food; }
+      }
+      
+      class Dog extends Domestic implements Animal {
+          public function live($home = " yard"){ return $home; }
+          public function makeSound() { return "wow"; }
+        }
+      
+      $cat = new Cat();
+      $dog = new Dog();
+      echo "<BR>A cat " . $cat->makeSound() . " and drinks " . $cat->eat() . "<br>";
+      echo "A dog " . $dog->makeSound() . " and lives in a " . $dog->live();
+
 ?>
 
 
