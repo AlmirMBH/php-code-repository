@@ -14,7 +14,7 @@ class DBConnection{
         
         static $instance = null;
         
-        if(null == $instance){
+        if($instance == null){
             $instance = new static();
         }else{
             echo "Using the same object".PHP_EOL;
@@ -22,3 +22,8 @@ class DBConnection{
         return $instance;
     }
 }
+
+// run in the console
+DBConnection::getInstance();
+DBConnection::getInstance();
+DBConnection::getInstance();
