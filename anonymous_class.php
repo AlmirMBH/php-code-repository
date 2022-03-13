@@ -46,7 +46,7 @@
         //anonymous class can't be typehinted but e.g. interface or 'object' can 
         function getAnonymousClass(NameInterface $class){  var_dump($class); }
 
-        // RESULTS
+        // output
         echo $anonymousClass->name . NLINE;
         echo $anonymousClass->getName() . NLINE;
         echo $anonymousClass->getPerson() . NLINE;

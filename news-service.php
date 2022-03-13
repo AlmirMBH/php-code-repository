@@ -71,7 +71,7 @@
 
 
 
-        // RESULTS
+        // output
         $newsProvider = new NewsProvider();
         $nyTimes = new NYTimes();
         $independent = new Independent();

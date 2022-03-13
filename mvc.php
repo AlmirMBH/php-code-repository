@@ -78,7 +78,7 @@
 
 
 
-        // RESULTS
+        // output
         $usersView = new UsersView();
         $usersView->getUsers("Sam");
         echo "<br>";
