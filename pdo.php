@@ -57,7 +57,7 @@
                 }
             }
         }
-        echo "RAW QUERY <br>";
+        echo "RAW QUERY <br> Available users to search <br>";
         $rawQuery = new RawQuery();
         $rawQuery->getUsers();
         
@@ -71,9 +71,9 @@
                 $data = $this->connect()->prepare($sql);
                 $data->execute([$name, $surname]);
                 $users = $data->fetchAll();
-
+                
                 foreach($users as $user){
-                    echo $user['first_name'] . " " . $user['last_name'];
+                    echo $user['first_name'] . " " . $user['last_name'] . "<br>";
                 }
             }
 
@@ -91,18 +91,26 @@
         }
 
         echo "<br>PREPARED STATEMENT (FIND USER)<br>";
-        $name = $_POST['name'];
-        $surname = $_POST['surname'];        
-        $preparedStatement = new PreparedStatement();
-        $preparedStatement->getUsers($name, $surname);
+        if( isset($_POST['name']) && isset($_POST['surname'])){
+            $name = $_POST['name'];
+            $surname = $_POST['surname'];        
+            $preparedStatement = new PreparedStatement();
+            $preparedStatement->getUsers($name, $surname);
+        }else{
+            echo "Fill out all fields to find a user";
+        }
+        
 
         echo "<br>PREPARED STATEMENT (INSERT USER)<br>";
-        $name = $_POST['user_name'];
-        $surname = $_POST['user_surname'];
-        $birth = $_POST['dob'];        
-        $preparedStatement = new PreparedStatement();
-        $preparedStatement->insertUser($name, $surname, $birth);       
-        
+        if( isset($_POST['user_name']) && isset($_POST['user_surname']) && isset($_POST['dob'])){
+            $name = $_POST['user_name'];
+            $surname = $_POST['user_surname'];
+            $birth = $_POST['dob'];        
+            $preparedStatement = new PreparedStatement();
+            $preparedStatement->insertUser($name, $surname, $birth);       
+        }else{
+            echo "Fill out all fields to add a user";
+        }
 
     ?>
     
