@@ -1,4 +1,10 @@
 <?php
+/**
+ * It is possible to enable strict mode on a per-file basis. In strict mode, only a variable of exact type of 
+ * the type declaration will be accepted, or a TypeError will be thrown. The only exception to this rule is 
+ * that an integer may be given to a function expecting a float. Function calls from within internal functions 
+ * will not be affected by the strict_types declaration.
+ */
 declare(strict_types=1);?>
 <!DOCTYPE html>
 <head><title>Iterators</title></head>
