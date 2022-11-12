@@ -12,12 +12,49 @@ function prettyPrintArray($array){
         print_r($array);
     echo "</pre>";
 }
-        // array_chunk
+        echo '<br>array_chunk<br>';
         $items = ['a' => 1, 'b' => 2, 'c' => 3, 'd' => 4, 'e' => 5];
         prettyPrintArray(array_chunk($items, 2));
 
 
-        // array_combine, array_filter, array_values
+        echo '<br><br>array_push<br>';
+        $items['f'] = 6;
+        array_push($items, 7);
+        prettyPrintArray(array_chunk($items, 2));
+
+
+        echo '<br><br>array_pop<br>';
+        array_pop($items);
+        prettyPrintArray($items);
+
+
+        echo '<br><br>array_shift<br>'; 
+        $items2 = [1, 2, 3, 4, 5, 6, 7];
+        array_shift($items); // after removing the first element, reindexing occurs
+        array_shift($items2); // after removing the first element, key reindexing does not occur
+        unset($items2[3]);
+        $items2[] = 8;
+        prettyPrintArray($items2);
+        prettyPrintArray($items);
+
+
+        echo '<br><br>key exists<br>';
+        $items3 = ['a' => 1, 'b' => null];
+        var_dump(array_key_exists('b', $items3));
+        echo "<br>";
+        var_dump(isset($items3['b']));
+        echo "<br>";
+
+
+        echo '<br><br>associative array keys<br>';
+        $arr = [true =>'a', 1 => 'b', 1 =>'c', 1.8 => 'd', null => 'e']; // overriding will occur: 1 => d
+        prettyPrintArray($arr);
+        echo $arr[null], "<br>";
+        $arr2 = ['a', 'b', 50 => 'c', 'd', 'e']; // 0 => 1, 2 => b, 50 => c, 51 => d, 52 => e
+        prettyPrintArray($arr2);
+
+
+        echo '<br><br>array_combine, array_filter, array_values<br>';
         $array1 = ['a', 'b', 'c', 'd'];
         $array2 = [1, 2, 3, 4];
         prettyPrintArray(array_combine($array1, $array2)); //keys, values; size must match
@@ -37,7 +74,7 @@ function prettyPrintArray($array){
         prettyPrintArray($arr4);
 
 
-        // array_keys
+        echo '<br><br>array_keys<br>';
         $items2 = ['a' => 1, 'b' => 2, 'c' => 3, 'd' => 4, 'e' => 5, 'f' => '1'];
         $keys = array_keys($items2, 1, true); // if true, searches for value and type
         prettyPrintArray($keys);
@@ -47,7 +84,7 @@ function prettyPrintArray($array){
         prettyPrintArray($mapped1);
 
 
-        // array_map
+        echo '<br><br>array_map<br>';
         $items4 = ['a' => 1, 'b' => 2, 'c' => 3];
         $items5 = ['d' => 4, 'e' => 5, 'f' => 1];
         $mapped2 = array_map(fn($number, $number2) => $number * $number2, $items4, $items5);
@@ -56,7 +93,7 @@ function prettyPrintArray($array){
         prettyPrintArray($mapped3);
 
         
-        // array_reduce
+        echo '<br><br>array_reduce<br>';
         $invoiceItems = [
             ['price' => 9.99, 'qty' => 3, 'desc' => 'Item1'],
             ['price' => 19.99, 'qty' => 1, 'desc' => 'Item2'],
@@ -73,36 +110,42 @@ function prettyPrintArray($array){
         $total1 = array_reduce($invoiceItems, fn($sum, $item) => $sum + $item['qty'] * $item['price'], $initialValue);
         prettyPrintArray($total1);
 
-        // array_diff
+
+        echo '<br><br>array_diff<br>';
         $num1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
         $num2 = [3, 4, 5, 4];
         $num3 = [7, 8, 9, 10];
         $arrDiff = array_diff($num1, $num2, $num3); // only vales, not keys
         prettyPrintArray($arrDiff);
 
-        // array_diff_key
+
+        echo '<br><br>array_diff_key<br>';
         $arrDiff1 = array_diff_key($num1, $num2, $num3); // onlye keys, not values
         prettyPrintArray($arrDiff1);
 
-        // array_diff_assoc
+
+        echo '<br><br>array_diff_assoc<br>';
         $arrDiff2 = array_diff_assoc($num1, $num2, $num3); // values and keys
         prettyPrintArray($arrDiff2);
 
-        // usort
+
+        echo '<br><br>usort<br>';
         $arrSort = ['a' => 1, 'b' => 2, 'c' => 3, 'd' => 4];
         $sorted1 = usort($arrSort, fn($a, $b) => $a <=> $b);
         // prettyPrintArray($sorted1);
         $sorted2 = usort($arrSort, fn($a, $b) => $b <=> $a); // reverse order
         // prettyPrintArray($sorted2);
 
-        // array destruction
+
+        echo '<br><br>array destruction<br>';
         $arrDestruct = [1, 2, [3, 4]];
         
         list($a, $b, $c, $d) = $array; 
         [$a, $b, $c, $d] = $array; // shorter version, the same as above
         echo $a . ", " . $c . " " . $d; // output 1, 3, 4 ($b skipped)
 
-        // nested array destruction
+
+        echo '<br><br>nested array destruction<br>';
         $arrDestruct1 = [1, 2, [3, 4]];
         [$b, [$c, $d]] = $array; // keys can also be specified e.g. [1 => $b, 2 => [$c, $d]] = $array;
         echo $a . " " . $b . " " . $c . " " . $d; // output 1, 2, 3, 4

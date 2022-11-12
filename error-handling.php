@@ -14,6 +14,8 @@
 
         const NLINE = "<br>";
 
+        // to supress the error, add '@'
+        $x = @file('non-existing.txt');
 
         class Customer{
             protected array $billingInfo = [];
