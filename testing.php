@@ -23,7 +23,7 @@
         // Dependencies can be resolved and they can use the DB connection
 
         // In both TDD and BDD tests are written prior to code
-        //TDD - Test-driven development
+        // TDD - Test-driven development
         // BDD - Behavior-driven development
 
         
