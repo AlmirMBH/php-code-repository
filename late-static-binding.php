@@ -11,7 +11,7 @@
 
     class ClassA{
         
-        protected string $name = 'A';
+        protected string $name = 'Almir';
 
         public function getName() : string{
             //var_dump(get_class($this));
@@ -22,7 +22,7 @@
 
     class ClassB extends ClassA{
         
-        protected string $name = 'B';
+        protected string $name = 'Bill';
         
     }
 
@@ -38,7 +38,7 @@
 
     class ClassC{
         
-        protected static string $name = 'C';
+        protected static string $name = 'Claire';
 
         public static function getName() : string{            
             // var_dump(self::class);
@@ -57,7 +57,7 @@
 
     class ClassD extends ClassC{
         
-        protected static string $name = 'D';
+        protected static string $name = 'Danny';
         
     }
     
@@ -65,8 +65,9 @@
     echo "<br>";
     echo ClassC::getName() . "<br>";
     echo ClassD::getName() . "<br>";
-    var_dump(ClassC::make()) . "<br>";
-    var_dump(ClassD::make()) . "<br>";
+    var_dump(ClassC::make());
+    echo "<br>";
+    var_dump(ClassD::make());
 
 ?>
 

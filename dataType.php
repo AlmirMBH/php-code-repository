@@ -21,6 +21,8 @@
          * 
          * In dynamically-typed languages type checking happens at runtime, while in statically-typed languages
          * type checking happens at compile time
+         * 
+         * Operator precedence: https://www.php.net/manual/en/language.operators.precedence.php
          */
 
          /**
@@ -171,8 +173,14 @@
 
           $bool1 = true;
           $bool2 = false;
-          $bool3 = $bool1 and $bool2;
+          $bool3 = $bool1 and $bool2; // assignment operator has higher precedence than 'and' but lover than '&&'
+          $bool4 = ($bool1 and $bool2);
+          $bool5 = $bool1 && $bool2;
           var_dump($bool3);
+          echo "<br>";
+          var_dump($bool4);
+          echo "<br>";
+          var_dump($bool5);
           echo "<br>";
 
           $greeting = "Hello world";
