@@ -223,7 +223,7 @@
           /**
            * Null data type
            * 
-           * When something is being echoed, it is first cated to a string
+           * When something is being echoed, it is first casted to a string
            * Null is casted to an empty string 
            */
           echo "<br>Null data type<br>";

@@ -46,8 +46,7 @@
             const EXAMPLE = "This cannot be changed!";
 
             public static function fClass(){
-                $test = self::EXAMPLE . "<br>";
-                return $test;
+                return self::EXAMPLE . "<br>";                
             }
 
             public static function checkIfGlobalConstantExists(){
