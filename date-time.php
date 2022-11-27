@@ -7,6 +7,23 @@
 
     <?php
 
+        echo "DEFAULT TIME ZONE ", date_default_timezone_get(), "<br>";
+        // date_default_timezone_set('UTC');
+
+        echo "<br>", "MAKE UNIX TIME", "<br>";
+        echo mktime(0, 0, 0, 4, 10, null), "<br>";
+        echo date('Y-m-d g:ia', mktime(0, 0, 0, 4, 10, null)), "<br>";
+
+        echo "<br>", "STRING TO (UNIX) TIME", "<br>";
+        echo strtotime('2022-11-22 22:00:00'), "<br>";
+        echo strtotime('tomorrow'), "<br>";
+        echo strtotime('last day of february 2022'), "<br>";
+        echo date('Y-m-d H:i:s', strtotime('second friday of january 2022 22:00:00')), "<br>";
+        echo "<br>PARSE DATE<pre>";
+        print_r(date_parse(date('Y-m-d H:i:s', strtotime('second friday of january 2022 22:00:00'))));
+        print_r(date_parse_from_format('Y/m/d', strtotime('second friday of january 2022 22:00:00'))); // with error
+        echo "</pre>";
+
         // Carbon is a library that is used as a wrapper around date objects
         // First parameter: tommorow, tomorrow 3:35pm, next thursday, last day of month, tomorrow noon...
         // Second parameter is time zone; list of supported time zones is available in php docs
@@ -21,6 +38,13 @@
         $timeZone->setDate(2023, 4, 24)->setTime(14, 15);
         $getTimeZone = $timeZone->getTimezone()->getName() . ' - ' . $timeZone->format('m/d/Y g:i A');
 
+            echo "<br>", "CURRENT TIME", "<br>";
+            $currentTime = time();
+            echo $currentTime, "<br>";
+            echo $currentTime - 5 * 24 * 60 * 60, "<br>"; // -5 days
+            echo date('Y-m-d g:ia', $currentTime), "<br>";
+
+            echo "<br>", "TIME OBJECT", "<br>";
             echo "<pre>";
                 print_r($dateTime1);
                 print_r($dateTime2);
