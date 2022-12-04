@@ -69,6 +69,12 @@
         echo FirstClass::checkIfGlobalConstantExists();
         echo SecondClass::sClass();
 
+        $firstClass = new FirstClass();
+        echo 'Object call of a constant: ', $firstClass::EXAMPLE, '<br>';
+        echo 'Key word class called on object: ', $firstClass::class, '<br>';
+        echo 'Key word class called on class: ', FirstClass::class, '<br>';
+
+
 
 
     ?>
