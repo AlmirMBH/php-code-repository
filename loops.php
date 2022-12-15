@@ -180,7 +180,7 @@ function draw(int $n){
     }
     echo "<br>";
 
-    // draw($n - 1); Seha, what happens when this line is not commented out and line 176 is? Why?
+    // draw($n - 1);
 }
 
 draw(4);
