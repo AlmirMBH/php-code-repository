@@ -1,5 +1,13 @@
 <?php
 
+/**
+ * 'Under the hood', strings are implemented as arrays of characters (1 byte).
+ * https://www.youtube.com/watch?v=8mAITcNt710&ab_channel=freeCodeCamp.org (05:19:40)
+ * Strings in memory are delineated by a 'nul character' i.e. '\0' (8 byts), and each string has this character
+ * at the end (can be seen by index in C language). All the other data types are finite regarding the number of bytes
+ * and, therefore, they are clearly delineated.
+ * New line '\n' is stored as one character (1 byte).
+ */
 // SUBSTRING
 $output = substr("Hello", 1, 3);
 echo $output;

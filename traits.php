@@ -1,10 +1,23 @@
 <?php
 
-
-// At compile time, code from traits is copied into the classes that use them; not polymorphism
-// Although traits have many options, it's recommendable to use traits for simple code re-use e.g. use
-// interfaces for contracts or abstract classes for abstract methods
-// final methods in traits can still be overriden
+/**
+ * Compiling is an umbrella term and it is oversimplification of the entire process. Every time code is compiled,
+ * a computer / compiler does 4 things:
+ * 1) preprocessing - copying the methods, variables and other constructs that we included via imports and 
+ * in other ways into our code
+ * 2) compiling - converting the actual code and converting it into the assembly language (not binary) i.e. the
+ * lowest human readable language (cryptic and very comlex) that the computer understands. That is the last
+ * step before the conversion of the code into the binary system. It contains so-called computer instructions.
+ * Each CPU has its own 'instruction set' for interpreting the assembly language.
+ * 3) assembling - converting assebly language into the binary code.
+ * 4) linking - merging the entire code from libraries that we included into our files converted to binary into 
+ * our code and creating one binary file that will be executed
+ *  
+ * At compile time, code from traits is copied into the classes that use them; not polymorphism
+ * Although traits have many options, it's recommendable to use traits for simple code re-use e.g. use
+ * interfaces for contracts or abstract classes for abstract methods
+ * final methods in traits can still be overriden
+ */
 
 const NLINE = "<br>";
 

@@ -1,5 +1,47 @@
 <?php
 
+/**
+ * O - describes an uppwer bound of the running time of algorithm i.e. how many steps an
+ * algorithm might take
+ * A list of commonly seen running times in the real world
+ * O(n^2)
+ * O(n log n)
+ * O(n)
+ * O(log n)
+ * O(1) - order of a single step, constant time, the best, a constant number of steps
+ * 
+ * Ω - describes a lower bound of the running time of algorithm i.e. how few steps an
+ * algorithm might take (best case)
+ * Ω(n^2)
+ * Ω(n log n)
+ * Ω(n)
+ * Ω(log n)
+ * Ω(1)
+ * 
+ * Θ (theta) - used when O (upper bound) and Ω (lower bound) are the same
+ * Θ(n^2)
+ * Θ(n log n)
+ * Θ(n)
+ * Θ(log n)
+ * Θ(1)
+ * 
+ * Most common algorithm is the linear search i.e. from the lowest to the highest index of an array, especially if the
+ * array is not ordered from the lowest to the highest value or in any other logical way.
+ * The loop below is the exmple of O(n). It does have only one step but the number of iterations is variable and can be
+ * infinite. O(n) is in the current situation also the upper bound.
+ * Ω(1) for this example would be achieved if number 5 is in the initial position of the array i.e. [5, 4, 3, 2, 1].
+ * 
+ * for([1, 2, 3, 4, 5] as $num){ 
+ * if($num == 5) 
+ *      return $num 
+ * }
+ * 
+ * Binary search, also called divide and conquer algorithm means that an array i split into 2 and then an element 5 is
+ * compared with number 3. If it is higher, the right side of the array is retained and the process is repeated until
+ * 5 is found. The largest number of looping to find an element in an array of n elements is O(log n) i.e. a number of
+ * times the array can be split into 2. This is the upper bound, while the lower bound would be to find the element on
+ * the first array splitting Ω(1).
+ */
 $a = 0;
 $b = 0;
 
@@ -122,3 +164,29 @@ foreach($arr3 as $key => $value){
     echo $key . ": ", json_encode($value) . "<br>";
 }
 unset($key, $value);
+
+
+echo "<br>DRAW A PYRAMID<br>";
+function draw(int $n){
+ 
+    if($n <= 0){
+        return;
+    }
+
+    $var = draw($n - 1);
+    
+    for($i = 0; $i < $n; $i++){
+        echo "#";
+    }
+    echo "<br>";
+
+    // draw($n - 1); Seha, what happens when this line is not commented out and line 176 is? Why?
+}
+
+draw(4);
+
+// expected result
+// #
+// ##
+// ###
+// ####

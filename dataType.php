@@ -6,10 +6,10 @@
         <?php 
         /**
          * 1) Scalar types
-         *    a) bool
-         *    b) int
-         *    c) float
-         *    d) string        
+         *    a) bool (1 byte)
+         *    b) int (4 bytes)
+         *    c) float (4 bytes)
+         *    d) string (any number of bytes)
          * 2) Compund types
          *    a) array
          *    b) object    
@@ -44,7 +44,7 @@
                      // 010 = 2
           var_dump($var1 & $var2);
           echo "<br>";
-
+          
           $var1 = 6; // 110
                      // |
           $var2 = 3; // 011

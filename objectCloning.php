@@ -7,7 +7,9 @@
 
     <?php
 
-        // cloning is 'shallow copying'; not like with (un)serialize
+        /**
+         * Cloning is 'shallow copying'; not like with (un)serialize, which is called deep copying.
+         */         
         const NLINE = '<br>';
 
         class Invoice{
